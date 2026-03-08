@@ -1,0 +1,6 @@
+../Drivers/CMSIS/Include/core_cm4.h:1684:22:__NVIC_EnableIRQ	2
+../Drivers/Modules/TimerDriver.c:20:6:TimerDriver_enable	1
+../Drivers/Modules/TimerDriver.c:24:6:TimerDriver_init	1
+../Drivers/Modules/TimerDriver.c:69:6:TimerDriver_disable	1
+../Drivers/Modules/TimerDriver.c:73:6:TimerDriver_set_period	1
+../Drivers/Modules/TimerDriver.c:82:6:TIM2_IRQHandler	3

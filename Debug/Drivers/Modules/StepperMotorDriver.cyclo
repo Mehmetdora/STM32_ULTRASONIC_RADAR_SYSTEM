@@ -1,0 +1,10 @@
+../Drivers/Modules/StepperMotorDriver.c:21:6:Stepper_init	1
+../Drivers/Modules/StepperMotorDriver.c:36:6:Stepper_start	1
+../Drivers/Modules/StepperMotorDriver.c:48:6:Stepper_stop	1
+../Drivers/Modules/StepperMotorDriver.c:57:6:Stepper_SetDirection	1
+../Drivers/Modules/StepperMotorDriver.c:61:6:Stepper_ToggleDirection	2
+../Drivers/Modules/StepperMotorDriver.c:68:6:Stepper_SetSpeed	1
+../Drivers/Modules/StepperMotorDriver.c:78:6:Stepper_WaveDriveMode	7
+../Drivers/Modules/StepperMotorDriver.c:133:6:Stepper_FullDriveMode1	9
+../Drivers/Modules/StepperMotorDriver.c:202:6:Stepper_FullDriveMode2	11
+../Drivers/Modules/StepperMotorDriver.c:280:6:Stepper_HalfDriveMode	19
