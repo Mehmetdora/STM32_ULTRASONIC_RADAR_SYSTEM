@@ -1,6 +1,6 @@
 ../Drivers/CMSIS/Include/core_cm4.h:1684:22:__NVIC_EnableIRQ	16	static,ignoring_inline_asm
-../Drivers/Modules/TimerDriver.c:20:6:TimerDriver_enable	4	static
-../Drivers/Modules/TimerDriver.c:24:6:TimerDriver_init	16	static
+../Drivers/Modules/TimerDriver.c:21:6:TimerDriver_enable	4	static
+../Drivers/Modules/TimerDriver.c:25:6:TimerDriver_init	16	static
 ../Drivers/Modules/TimerDriver.c:69:6:TimerDriver_disable	4	static
 ../Drivers/Modules/TimerDriver.c:73:6:TimerDriver_set_period	16	static
-../Drivers/Modules/TimerDriver.c:82:6:TIM2_IRQHandler	8	static
+../Drivers/Modules/TimerDriver.c:82:6:TIM5_IRQHandler	8	static

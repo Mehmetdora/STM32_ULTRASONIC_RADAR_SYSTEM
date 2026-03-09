@@ -7,6 +7,8 @@
 "./Core/Startup/startup_stm32f411retx.o"
 "./Drivers/Modules/StepperMotorDriver.o"
 "./Drivers/Modules/TimerDriver.o"
+"./Drivers/Modules/UARTDriver.o"
+"./Drivers/Modules/UltrasonicSensorDriver.o"
 "./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o"
 "./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o"
 "./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.o"

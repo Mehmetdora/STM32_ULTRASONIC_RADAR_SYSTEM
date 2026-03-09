@@ -1,13 +1,14 @@
-
 #include "main.h"
 #include "StepperMotorDriver.h"
 #include "TimerDriver.h"
+#include "UartDriver.h"
+#include "UltrasonicSensorDriver.h"
 
 
 
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
-
+int int2char(int num, char str[]);
 
 
 int main(void)
@@ -22,24 +23,85 @@ int main(void)
 
   TimerDriver_init();
   Stepper_init();
+  uart_init();
+  HCSR_04_init();
 
 
   Stepper_start();
+  HCSR_04_start();
+  char radar_data[30];
+  int len = 0;
+  uint32_t last_mesuarement = 0 ;
+  uint32_t now ;
 
 
   while (1)
   {
 
+	  now = HAL_GetTick();
+	  if(now - last_mesuarement >= 400){			// bu kontrol değerini değiştirerek ölçüm hızı değiştirilebilir
+
+		  last_mesuarement = now;
+		  if(measurement_done && !tx_busy)			// sensör ölçümü ve önceki uart gönderimi tamamlanmış ise
+		  {
+
+			  measurement_done = 0;
+
+			  len += int2char(Stepper_GetAngle(), radar_data + len);
+			  radar_data[len++] = ',';
+
+			  uint32_t dist = HCSR_04_GetDistance();
+			  len += int2char(dist, radar_data + len);
+			  radar_data[len++] = '\r';
+			  radar_data[len++] = '\n';
+			  radar_data[len]   = '\0';
+
+			  uart_send_string_IT(radar_data);
+			  len = 0;
+
+			  HCSR_04_start();         // Yeni tetikleme
+
+		  }
 
 
-
-
-
+	  }
 
 
   }
   /* USER CODE END 3 */
 }
+
+
+
+
+int int2char(int num, char str[])
+{
+    char lstr[30];
+    int cnt = 0;
+    int div = 10;
+    int j = 0;
+
+    while(num >= div)
+    {
+        lstr[cnt] = num % div + 0x30;
+        num /= 10;
+        cnt++;
+    }
+
+    lstr[cnt] = num + 0x30;
+
+    for(j = cnt; j >= 0; j--)
+    {
+        str[cnt - j] = lstr[j];
+    }
+
+    str[cnt + 1] = '\0';  // null terminate
+    return cnt + 1;       // kaç karakter yazdığını döndür
+}
+
+
+
+
 
 /**
   * @brief System Clock Configuration

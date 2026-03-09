@@ -6,15 +6,21 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
 ../Drivers/Modules/StepperMotorDriver.c \
-../Drivers/Modules/TimerDriver.c 
+../Drivers/Modules/TimerDriver.c \
+../Drivers/Modules/UARTDriver.c \
+../Drivers/Modules/UltrasonicSensorDriver.c 
 
 OBJS += \
 ./Drivers/Modules/StepperMotorDriver.o \
-./Drivers/Modules/TimerDriver.o 
+./Drivers/Modules/TimerDriver.o \
+./Drivers/Modules/UARTDriver.o \
+./Drivers/Modules/UltrasonicSensorDriver.o 
 
 C_DEPS += \
 ./Drivers/Modules/StepperMotorDriver.d \
-./Drivers/Modules/TimerDriver.d 
+./Drivers/Modules/TimerDriver.d \
+./Drivers/Modules/UARTDriver.d \
+./Drivers/Modules/UltrasonicSensorDriver.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -24,7 +30,7 @@ Drivers/Modules/%.o Drivers/Modules/%.su Drivers/Modules/%.cyclo: ../Drivers/Mod
 clean: clean-Drivers-2f-Modules
 
 clean-Drivers-2f-Modules:
-	-$(RM) ./Drivers/Modules/StepperMotorDriver.cyclo ./Drivers/Modules/StepperMotorDriver.d ./Drivers/Modules/StepperMotorDriver.o ./Drivers/Modules/StepperMotorDriver.su ./Drivers/Modules/TimerDriver.cyclo ./Drivers/Modules/TimerDriver.d ./Drivers/Modules/TimerDriver.o ./Drivers/Modules/TimerDriver.su
+	-$(RM) ./Drivers/Modules/StepperMotorDriver.cyclo ./Drivers/Modules/StepperMotorDriver.d ./Drivers/Modules/StepperMotorDriver.o ./Drivers/Modules/StepperMotorDriver.su ./Drivers/Modules/TimerDriver.cyclo ./Drivers/Modules/TimerDriver.d ./Drivers/Modules/TimerDriver.o ./Drivers/Modules/TimerDriver.su ./Drivers/Modules/UARTDriver.cyclo ./Drivers/Modules/UARTDriver.d ./Drivers/Modules/UARTDriver.o ./Drivers/Modules/UARTDriver.su ./Drivers/Modules/UltrasonicSensorDriver.cyclo ./Drivers/Modules/UltrasonicSensorDriver.d ./Drivers/Modules/UltrasonicSensorDriver.o ./Drivers/Modules/UltrasonicSensorDriver.su
 
 .PHONY: clean-Drivers-2f-Modules
 

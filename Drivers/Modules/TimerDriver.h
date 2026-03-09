@@ -9,10 +9,14 @@
 #define MODULES_TIMERDRIVER_H_
 
 
-void TimerDriver_init(void);
-void TimerDriver_enable(void);
-void TimerDriver_disable(void);
-void TimerDriver_set_period(uint32_t period);
+	#include <stdint.h>
+	extern volatile uint32_t step_counter;
+
+	void TimerDriver_init(void);
+	void TimerDriver_enable(void);
+	void TimerDriver_disable(void);
+	void TimerDriver_set_period(uint32_t period);
+
 
 
 

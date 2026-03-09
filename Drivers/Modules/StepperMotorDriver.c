@@ -15,6 +15,7 @@ volatile signed int step_index = 3;
 volatile int direction;
 volatile uint8_t motor_running;
 volatile uint32_t step_delay;
+uint16_t angle = 0;
 
 
 
@@ -68,8 +69,22 @@ void Stepper_ToggleDirection(void){
 void Stepper_SetSpeed(uint32_t step_delay){
 
 	TimerDriver_disable();
-	TIM2->ARR = step_delay - 1;
+	TIM5->ARR = step_delay - 1;
 	TimerDriver_enable();
+}
+
+
+uint16_t Stepper_GetAngle(void){
+
+
+	if(direction == 0){
+		angle = (2048 - step_counter) * 0.08789;
+	}else if(direction == 1){
+		angle = step_counter * 0.08789;
+	}
+
+
+	return angle;
 }
 
 
